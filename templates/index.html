@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <form action="/ddd" method="POST">
+    <form name="login_form">
+        <div class="login_form_top">
+          <h1>ログイン画面</h1>
+          <p>ユーーザID、パスワードをご入力の上、「ログイン」ボタンをクリックしてください。</p>
+        </div>
+        <div class="login_form_btm">
+          <input type="id" name="user_id" placeholder="ユーザーIDを入力してください"><br>
+          <input type="password" name="password"placeholder="パスワードを入力してください">
+        </div>
+        <input type="submit" value="送信">
+      </form>
+    </form>
+    <div class="contents">
+      <br>
+    {% for d in data %}
+        <p>{{d.id}}. 名前: <span class="name">{{d.user_id}}</span>
+        <p>{{d.message}}</p>
+{% endfor %}
+</div>
+</body>
+</html>
